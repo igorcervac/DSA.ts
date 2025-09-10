@@ -9,8 +9,8 @@ export default class Stack<T>  {
        return this.items.pop(); 
     }
 
-    peek():T | null{
-        return !this.empty() ? this.items[this.items.length - 1] : null;
+    peek():T | undefined{
+        return !this.empty() ? this.items[this.items.length - 1] : undefined;
     }
 
     size():number{

@@ -1,3 +1,6 @@
+import Queue from '../../queue/src/queue.ts'
+
+
 class TreeNode<T> {
     value: T;
     left: TreeNode<T> | null;
@@ -67,6 +70,28 @@ export default class BinaryTree<T>{
             this.traversePostOrder(node.left, callback);
             this.traversePostOrder(node.right, callback);
             callback(node.value);
+        }
+    }
+
+    traverseInBreadth(node: TreeNode<T> | null = this.root, callback = console.log){
+        const queue = new Queue<TreeNode<T>>();
+
+        if (this.root){
+            queue.enqueue(this.root);
+        }
+
+        while (queue.size() > 0){
+            const node = queue.dequeue()!;
+
+            callback(node.value);
+
+            if (node.left){
+                queue.enqueue(node.left);
+            }
+
+            if (node.right){
+                queue.enqueue(node.right);
+            }
         }
     }
 }

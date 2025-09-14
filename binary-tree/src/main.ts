@@ -19,3 +19,7 @@ console.groupEnd();
 console.group("Post-order:");
 binaryTree.traversePostOrder();
 console.groupEnd();
+
+console.group("In-breadth:");
+binaryTree.traverseInBreadth();
+console.groupEnd();
